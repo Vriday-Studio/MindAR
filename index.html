@@ -1,0 +1,48 @@
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    <script>
+      window.addEventListener('click', function () {
+      var v = document.querySelector('#v1');
+      v.play();
+      });
+    </script>
+  </head>
+  <body>
+    <div style="display: none; height: 25vh; background: rgba(255, 255, 255, 0.8); box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); padding: 20px; border-radius: 10px;font-size: 0.6em;">
+        <h1>"Lady with Kebaya" by Basuki Abdullah</h1> 
+        <p style="align-items: justify;">Basoeki Abdullah lahir di Surakarta, Jawa Tengah, 
+         25 Januari 1915 – meninggal 5 November 1993 pada umur 78 tahun, 
+         dia merupakan salah satu pelukis maestro yang dimiliki Indonesia.
+         Ia dikenal sebagai pelukis aliran realis dan naturalis.
+          Ia pernah diangkat menjadi pelukis resmi Istana Merdeka Jakarta dan karya-karyanya menghiasi istana negara dan kepresidenan Indonesia,
+           karyanya juga koleksi oleh para kolektor dari berbagai penjuru dunia.</p>
+     </div>
+    <div>
+        <a-scene mindar-image="imageTargetSrc: ./targets.mind;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+            <a-assets>
+              <img id="card" src="./assets/bg chl.png">
+              <video id="v1" autoplay="true" loop="true" src="./assets/vmake.mp4" muted="true"></video>  
+            </a-assets>
+      
+            <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+            
+            <a-entity mindar-image-target="targetIndex: 0">
+              <a-video src="#v1" width="9" height="16" position="0 0 0" scale="0.07 0.07 0.07" play="true"></a-video>         
+           </a-entity>
+            <a-entity mindar-image-target="targetIndex: 1">
+              <a-plane src="#card" position="0 0 0" height="1" width="0.552" rotation="0 0 0" material="" geometry=""></a-plane>
+               
+              <a-text id="text" value="" color="black" align="center" width="1" position="0 0 0"  material="opacity: 1" text="Lady with Kebaya by Basuki Abdullah"></a-text>
+            
+            </a-entity>
+          
+          </a-scene>
+    </div>
+   
+  </body>
+</html>
